@@ -1,0 +1,26 @@
+.navlink{
+    color: whitesmoke;
+    text-decoration: none;
+}
+.navlink:hover{
+    color: whitesmoke;
+}
+.service-header{
+    color: rgb(82, 78, 78);
+    font-weight: 800;
+}
+.service-header button{
+    border: none;
+    background-color: #DC8051;
+    padding: 5px 7px;
+    border-radius: 3px;
+}
+
+.service-header a{
+    color: white;
+    text-decoration: none;
+    font-size: 10px;
+    font-weight: 600;
+    display: block;
+    text-align: center;
+}
