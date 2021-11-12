@@ -26,7 +26,7 @@ const PurchasePage = () => {
 
       })
   }, [])
-  console.log(details)
+
 
   const { product_name, description, img, price, Brand } = details;
 

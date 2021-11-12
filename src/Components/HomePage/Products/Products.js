@@ -9,7 +9,6 @@ import { Grid, Typography } from '@mui/material';
 
 const Products = () => {
   const products = useProducts();
-  console.log(products)
   return (
 
     <Container className="mt-5">

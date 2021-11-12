@@ -29,7 +29,7 @@ const Reviews = () => {
       <Grid container spacing={2} sx={{ my: 5 }}>
 
         {
-          reviews.map(review => <HomePageReview review={review} ></HomePageReview>)
+          reviews.map(review => <HomePageReview key={review._id} review={review} ></HomePageReview>)
         }
 
       </Grid>

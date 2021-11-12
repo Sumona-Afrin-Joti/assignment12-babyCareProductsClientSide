@@ -6,6 +6,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 import { useHistory } from 'react-router';
 import useAuth from '../../hooks/useAuth';
 import { useForm } from 'react-hook-form';
+import swal from 'sweetalert';
 
 
 const style = {
@@ -32,7 +33,6 @@ const ModalShipping = ({ handleOpen, handleClose, open, purchingProduct }) => {
   const onSubmit = data => {
     data.purchsed = purchingProduct;
     data.status = "Pending"
-    console.log('data from shipping', data);
 
     fetch('https://floating-river-34453.herokuapp.com/orders', {
       method: 'POST',
@@ -43,7 +43,8 @@ const ModalShipping = ({ handleOpen, handleClose, open, purchingProduct }) => {
     })
       .then(res => res.json())
       .then(result => {
-        alert(' Order Done');
+        swal("Good job!", "Order Done", "success");
+        console.log(swal)
         handleClose()
         history.push('/dashboard/myOrders')
         reset();

@@ -11,7 +11,7 @@ const SignUp = () => {
 
   const history = useHistory();
 
-  const handleOnChange = (e) => {
+  const handleonBlur = (e) => {
     const field = e.target.name;
     const value = e.target.value;
     const newLoginData = { ...loginData };
@@ -28,6 +28,7 @@ const SignUp = () => {
 
     registerUser(loginData.email, loginData.password, loginData.name, history)
   }
+  console.log(loginData)
 
   return (
     <Container>
@@ -43,7 +44,7 @@ const SignUp = () => {
                   id="standard-basic"
                   label="Your Name"
                   name="name"
-                  OnChange={handleOnChange}
+                  onBlur={handleonBlur}
                   variant="standard" />
                 <TextField
                   sx={{ width: '75%', mt: 5 }}
@@ -51,7 +52,7 @@ const SignUp = () => {
                   type="email"
                   label="Your Email"
                   name="email"
-                  OnChange={handleOnChange}
+                  onBlur={handleonBlur}
                   variant="standard" />
                 <TextField
                   sx={{ width: '75%', mt: 5 }}
@@ -59,7 +60,7 @@ const SignUp = () => {
                   label=" Your Password"
                   type="password"
                   name="password"
-                  OnChange={handleOnChange}
+                  onBlur={handleonBlur}
                   variant="standard"
                 />
                 <TextField
@@ -68,7 +69,7 @@ const SignUp = () => {
                   label=" Re-type-password"
                   type="password"
                   name="password2"
-                  OnChange={handleOnChange}
+                  onBlur={handleonBlur}
                   variant="standard"
                 />
                 <br />

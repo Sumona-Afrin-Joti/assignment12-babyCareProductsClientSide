@@ -4,14 +4,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Avatar, Grid, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
-import Rating from 'react-rating';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import { CardActionArea } from '@mui/material';
+import Rating from 'react-rating'
 
 const HomePageReview = ({ review }) => {
-  console.log('review', review);
 
   const { reviewers_img, reviewers_name, description, rating } = review;
 
@@ -42,49 +37,4 @@ const HomePageReview = ({ review }) => {
 
 export default HomePageReview;
 
-/* <Box sx={{ display: "flex", justifyContent: "center" }}>
-        <Avatar alt={reviewers_name.slice(0)} src={reviewers_img} />
-      </Box>
 
-      <Box sx={{ textAlign: 'center', my: 3 }}>
-        <Rating
-          style={{ color: 'goldenrod' }}
-          readonly
-          initialRating={rating}
-          emptySymbol={<FontAwesomeIcon icon={emptyStart}></FontAwesomeIcon>}
-          fullSymbol={<FontAwesomeIcon icon={faStar}></FontAwesomeIcon>}
-        ></Rating>
-        <Typography variant="h5">
-          {reviewers_name}
-        </Typography >
-        <Typography variant="p">
-          {description}
-        </Typography>
-      </Box> */
-
-
-
-{/* <Card sx={{ maxWidth: 345 }}>
-        <CardActionArea>
-          <Box sx={{ display: "flex", justifyContent: "center" }}>
-            <Avatar alt={reviewers_name.slice(0)} src={reviewers_img} />
-          </Box>
-          <CardContent sx={{ textAlign: 'center', my: 3 }}>
-            <Rating
-              style={{ color: 'goldenrod' }}
-              readonly
-              initialRating={rating}
-              emptySymbol={<FontAwesomeIcon icon={emptyStart}></FontAwesomeIcon>}
-              fullSymbol={<FontAwesomeIcon icon={faStar}></FontAwesomeIcon>}
-            ></Rating>
-            <Typography variant="h5">
-              {reviewers_name}
-            </Typography >
-            <Typography variant="p">
-              {description}
-            </Typography>
-          </CardContent>
-        </CardActionArea>
-      </Card>
-
-     */}

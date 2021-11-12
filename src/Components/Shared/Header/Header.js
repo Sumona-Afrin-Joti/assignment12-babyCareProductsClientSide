@@ -8,7 +8,7 @@ import { Avatar } from '@mui/material';
 
 const Header = () => {
   const { user, logOut } = useAuth();
-  console.log(user.displayName);
+
   const img = <Avatar alt={user.displayName} src="/static/images/avatar/1.jpg" />
 
   return (

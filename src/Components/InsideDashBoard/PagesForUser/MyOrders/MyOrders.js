@@ -1,10 +1,87 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
+import * as React from 'react';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import swal from 'sweetalert';
+import { Container } from 'react-bootstrap';
+import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 
 const MyOrders = () => {
+  const [orders, setOrders] = useState([])
+
+  useEffect(() => {
+    fetch('http://localhost:5000/orders')
+      .then(res => res.json())
+      .then(data => setOrders(data))
+  }, [orders]);
+
+
+  const handleDelete = (id) => {
+    swal({
+      title: "Are you sure?",
+      text: "Do you wanna delete it?",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+      .then((willDelete) => {
+        if (willDelete) {
+          swal(" deleted successfully!", {
+            icon: "success",
+          });
+
+          fetch(`http://localhost:5000/orders/${id}`, {
+            method: 'DELETE',
+          })
+            .then(res => res.json())
+            .then(data => {
+            })
+        } else {
+          swal("Your imaginary file is safe!");
+        }
+      });
+
+
+  }
   return (
-    <div>
-      this is my Orders
-    </div>
+    <Container>
+      <TableContainer component={Paper}>
+        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <TableCell>Order Id</TableCell>
+              <TableCell align="right">Product Name</TableCell>
+              <TableCell align="right">User Name</TableCell>
+              <TableCell align="right">Status</TableCell>
+              <TableCell align="right"> Action </TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {orders.map((row) => (
+              <TableRow
+                key={row._id}
+                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+              >
+                <TableCell component="th" scope="row">
+                  {row._id}
+                </TableCell>
+                <TableCell align="right">{row.purchsed.product_name}</TableCell>
+                <TableCell align="right">{row.name}</TableCell>
+                <TableCell align="right">{row.status}</TableCell>
+                <TableCell align="right"> <FontAwesomeIcon icon={faTrashAlt} onClick={() => handleDelete(row._id)} ></FontAwesomeIcon> </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </Container>
+
   );
 };
 

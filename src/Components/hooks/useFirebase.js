@@ -1,6 +1,7 @@
 import authInitialization from "../firebase/firebase.init";
 import { getAuth, createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
 import { useEffect, useState } from "react";
+import swal from 'sweetalert';
 
 
 authInitialization()
@@ -23,7 +24,7 @@ const useFirebase = () => {
         }
         setUser(user);
         setError('')
-        alert('registerd successfully');
+        swal("Good job!", "successfully signed up!", "success");
 
         //updating profile
         profileUpdate(name);
@@ -39,7 +40,6 @@ const useFirebase = () => {
       .finally(() => setIsLoading(false))
 
   }
-  console.log(user?.email)
 
   const profileUpdate = (name) => {
     updateProfile(auth.currentUser, {
@@ -79,11 +79,8 @@ const useFirebase = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
 
-        // const user = {
-        //   email, displayName: name
-        // }
+        swal("Good job!", "successfully loged in!", "success");
         setError('');
-        alert('loged in successfully')
         const destination = location?.state?.from || '/';
         history.push(destination);
 
@@ -133,17 +130,17 @@ const useFirebase = () => {
       .then(res => res.json())
       .then(data => {
         if (data?.role) {
-
           setIsAdmin(true);
         }
-        console.log('user data', data)
-
+        else {
+          setIsAdmin(false)
+        }
       })
       .catch(error => {
 
       })
-  }, [user?.email]);
-  console.log(isAdmin)
+  }, [user.email]);
+
 
   return {
     registerUser,

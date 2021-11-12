@@ -53,10 +53,10 @@ function Dashboard(props) {
         {
           !isAdmin && <>
             <ListItem><NavLink to="/">Home</NavLink></ListItem>
-            <ListItem><Link activeStyle={{
+            <ListItem><NavLink activeStyle={{
               fontWeight: "bold",
               color: "#A47355"
-            }} to={`${url}`}>DashboardHome</Link></ListItem>
+            }} to={`${url}`}>DashboardHome</NavLink></ListItem>
 
             <ListItem><NavLink activeStyle={{
               fontWeight: "bold",

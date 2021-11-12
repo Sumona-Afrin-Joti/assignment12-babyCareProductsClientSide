@@ -1,12 +1,13 @@
 import { Container, Grid, Typography, TextField, Button, CircularProgress, Alert } from '@mui/material';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { NavLink, useLocation, useHistory } from 'react-router-dom';
 import useAuth from '../hooks/useAuth';
 
 
+
 const Login = () => {
   const [loginData, setLoginData] = useState({});
-  const { loginUser, isLoading, signInUsingGoogle, error, setError } = useAuth();
+  const { loginUser, isLoading, error, setError } = useAuth();
 
 
   const location = useLocation();
@@ -25,9 +26,6 @@ const Login = () => {
     loginUser(loginData.email, loginData.password, location, history)
   };
 
-  const handleGoogleSignIn = () => {
-    // signInUsingGoogle(location, history)
-  }
   return (
     <Container>
       <Grid container spacing={2}>
@@ -68,9 +66,6 @@ const Login = () => {
               {
                 error && <Alert severity="error">{error}</Alert>
               }
-
-              <p>..........................</p>
-              <Button onClick={handleGoogleSignIn} variant="contained" sx={{ backgroundColor: '#00e5ff' }}> Google Sign In</Button>
 
             </>
           }
