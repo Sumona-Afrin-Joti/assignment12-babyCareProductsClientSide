@@ -61,7 +61,7 @@ function Dashboard(props) {
             <ListItem><NavLink activeStyle={{
               fontWeight: "bold",
               color: "#A47355"
-            }} to={`${url}/pay`}>Pay</NavLink></ListItem>
+            }} to={`${url}/pay`}>Payment</NavLink></ListItem>
             <ListItem><NavLink activeStyle={{
               fontWeight: "bold",
               color: "#A47355"

@@ -5,6 +5,7 @@ import { Grid, Typography } from '@mui/material';
 import ExploreProduct from '../ExploreProduct/ExploreProduct';
 import useProducts from '../hooks/useProducts';
 import Header from '../Shared/Header/Header';
+import Footer from '../Shared/Footer/Footer';
 
 
 const ExploreProducts = () => {
@@ -29,6 +30,7 @@ const ExploreProducts = () => {
 
         </Grid>
       </Container>
+      <Footer></Footer>
     </>
 
 

@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const ManageAllOrders = () => {
+  const [allOrders, setAllOrders] = useState([]);
+
+
   return (
     <div>
-      this is manage all orders
+      <h3>manage all orders</h3>
     </div>
   );
 };

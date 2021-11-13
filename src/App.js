@@ -9,6 +9,8 @@ import Dashboard from './Components/InsideDashBoard/Dashboard/Dashboard';
 import ExploreProducts from './Components/ExploreProducts/ExploreProducts';
 import PurchasePage from './Components/PurchasePage/PurchasePage';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
+import NotFound from '../src/Components/NotFound/NotFound'
+
 
 function App() {
   return (
@@ -20,12 +22,15 @@ function App() {
             <Route exact path="/">
               <Home></Home>
             </Route>
+
             <Route path="/home">
               <Home></Home>
             </Route>
+
             <Route path="/signUp">
               <SignUp></SignUp>
             </Route>
+
             <Route path="/login">
               <Login></Login>
             </Route>
@@ -40,6 +45,9 @@ function App() {
 
             <Route path="/purchase/:id">
               <PurchasePage></PurchasePage>
+            </Route>
+            <Route path="*">
+              <NotFound></NotFound>
             </Route>
           </Switch>
 

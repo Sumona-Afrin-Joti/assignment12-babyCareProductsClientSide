@@ -13,14 +13,16 @@ const Header = () => {
 
   return (
 
-    <Navbar collapseOnSelect expand="lg" bg="white" variant="white">
+    <Navbar collapseOnSelect expand="lg" bg="black" variant="white" sticky="top">
       <Container>
         <Navbar.Brand href="#home">
           <img className="logo" src={logo} alt="" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
+
           <Nav className="ms-auto d-flex justify-content-center align-items-center">
+
             <Nav className=" my-2 my-lg-0"
               style={{ maxHeight: '100px' }}
               navbarScroll >

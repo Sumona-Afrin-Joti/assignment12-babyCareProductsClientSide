@@ -11,15 +11,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import swal from 'sweetalert';
 import { Container } from 'react-bootstrap';
 import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
+import useAuth from '../../../hooks/useAuth';
+
 
 const MyOrders = () => {
-  const [orders, setOrders] = useState([])
+  const [myOrders, setMyOrders] = useState([]);
+  const { user } = useAuth();
 
   useEffect(() => {
-    fetch('http://localhost:5000/orders')
+    fetch(`https://floating-river-34453.herokuapp.com/orders`)
       .then(res => res.json())
-      .then(data => setOrders(data))
-  }, [orders]);
+      .then(data => {
+        const orders = data.filter(pd => pd.email === user.email);
+        setMyOrders(orders)
+      })
+  }, [user.email]);
 
 
   const handleDelete = (id) => {
@@ -36,7 +42,7 @@ const MyOrders = () => {
             icon: "success",
           });
 
-          fetch(`http://localhost:5000/orders/${id}`, {
+          fetch(`https://floating-river-34453.herokuapp.com/orders/${id}`, {
             method: 'DELETE',
           })
             .then(res => res.json())
@@ -51,19 +57,20 @@ const MyOrders = () => {
   }
   return (
     <Container>
+
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
               <TableCell>Order Id</TableCell>
               <TableCell align="right">Product Name</TableCell>
-              <TableCell align="right">User Name</TableCell>
+              <TableCell align="right">User Email</TableCell>
               <TableCell align="right">Status</TableCell>
               <TableCell align="right"> Action </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {orders.map((row) => (
+            {myOrders.map((row) => (
               <TableRow
                 key={row._id}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
@@ -72,7 +79,7 @@ const MyOrders = () => {
                   {row._id}
                 </TableCell>
                 <TableCell align="right">{row.purchsed.product_name}</TableCell>
-                <TableCell align="right">{row.name}</TableCell>
+                <TableCell align="right">{row.email}</TableCell>
                 <TableCell align="right">{row.status}</TableCell>
                 <TableCell align="right"> <FontAwesomeIcon icon={faTrashAlt} onClick={() => handleDelete(row._id)} ></FontAwesomeIcon> </TableCell>
               </TableRow>
