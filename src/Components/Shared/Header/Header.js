@@ -13,52 +13,49 @@ const Header = () => {
 
   return (
 
-    <Navbar collapseOnSelect expand="lg" bg="black" variant="white" sticky="top">
+    <Navbar bg="light" expand="lg">
       <Container>
-        <Navbar.Brand href="#home">
+        <Navbar.Brand to="#home">
           <img className="logo" src={logo} alt="" />
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
 
           <Nav className="ms-auto d-flex justify-content-center align-items-center">
 
-            <Nav className=" my-2 my-lg-0"
-              style={{ maxHeight: '100px' }}
-              navbarScroll >
 
-              <Nav.Link as={NavLink} activeStyle={{
+            <Nav.Link as={NavLink} activeStyle={{
+              fontWeight: "bold",
+              color: "#A47355"
+            }} className="menu-color" to="/home">Home</Nav.Link>
+
+
+
+
+            <Nav.Link as={NavLink} activeStyle={{
+              fontWeight: "bold",
+              color: "#A47355"
+            }} to="/exploreProducts">Explore Product</Nav.Link>
+
+
+
+            <Nav.Link as={NavLink} activeStyle={{
+              fontWeight: "bold",
+              color: "#A47355"
+            }} to="/dashboard">Dashboard</Nav.Link>
+
+            {
+              !user.displayName && <Nav.Link as={NavLink} activeStyle={{
                 fontWeight: "bold",
                 color: "#A47355"
-              }} className="menu-color" to="/home">Home</Nav.Link>
+              }} to="/login">Login</Nav.Link>
+            }
 
 
 
-
-              <Nav.Link as={NavLink} activeStyle={{
-                fontWeight: "bold",
-                color: "#A47355"
-              }} to="/exploreProducts">Explore Product</Nav.Link>
-
-
-
-              <Nav.Link as={NavLink} activeStyle={{
-                fontWeight: "bold",
-                color: "#A47355"
-              }} to="/dashboard">Dashboard</Nav.Link>
-
-              {
-                !user.displayName && <Nav.Link as={NavLink} activeStyle={{
-                  fontWeight: "bold",
-                  color: "#A47355"
-                }} to="/login">Login</Nav.Link>
-              }
-
-
-            </Nav>
             {
               user.displayName && <NavDropdown title={img} id="collasible-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">{user.displayName}</NavDropdown.Item>
+                <NavDropdown.Item to="#action/3.1">{user.displayName}</NavDropdown.Item>
                 <NavDropdown.Item onClick={logOut}>Log Out</NavDropdown.Item>
 
               </NavDropdown>
