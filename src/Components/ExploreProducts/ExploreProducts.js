@@ -9,7 +9,7 @@ import Footer from '../Shared/Footer/Footer';
 
 
 const ExploreProducts = () => {
-  const products = useProducts();
+  const { products } = useProducts();
   console.log(products)
   return (
     <>

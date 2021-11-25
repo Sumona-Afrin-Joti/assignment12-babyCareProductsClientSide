@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import * as React from 'react';
-import Table from '@mui/material/Table';
+import { Table, Container } from '@mui/material';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
@@ -9,7 +9,6 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import swal from 'sweetalert';
-import { Container } from 'react-bootstrap';
 import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import useAuth from '../../../hooks/useAuth';
 

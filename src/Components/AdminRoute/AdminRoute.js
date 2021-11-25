@@ -8,6 +8,9 @@ const AdminRoute = ({ children, ...rest }) => {
   if (isLoading) {
     return <CircularProgress color="inherit" />
   }
+  if (!isAdmin) {
+    return <CircularProgress color="inherit" />
+  }
   return (
     <Route
       {...rest}
