@@ -10,7 +10,7 @@ Today we are present in more than 4,000 multi-brand points of sale across four c
 ### Key Points
 
 - You can Order Product in Online After signing up in this website.
-- Here you can pay through bkash,nagab, rocket.
+- Here you can pay through bkash,nagad, rocket.
 - As well as here has cash on delivery system.
 - We Provide home delivery service for better customer experience.
 - You Can cancel your order before approving order
