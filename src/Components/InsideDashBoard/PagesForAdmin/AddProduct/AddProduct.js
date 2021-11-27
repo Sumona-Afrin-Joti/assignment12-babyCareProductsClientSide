@@ -58,7 +58,7 @@ const Review = () => {
                   <input required placeholder=" product price" className="w-100 form-control mb-3" {...register("price", { required: true })} />
                 </Col>
               </Row>
-              <Button className="button" type="submit">
+              <Button style={{ backgroundColor: "#E0647A", border: 'none' }} className="button buttonHover" type="submit">
                 Add Product
               </Button>
             </form>

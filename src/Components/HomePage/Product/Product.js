@@ -7,6 +7,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { NavLink } from 'react-router-dom';
+import './Product.css'
 
 const Product = ({ product }) => {
   return (
@@ -30,7 +31,7 @@ const Product = ({ product }) => {
             </CardContent>
             <CardActions sx={{ display: "flex", justifyContent: "center" }}>
               <NavLink to={`/purchase/${product._id}`} style={{ textDecoration: 'none' }} >
-                <Button sx={{ backgroundColor: "#E0647A" }} variant="contained">Purchase</Button>
+                <Button className="buttonHover" sx={{ backgroundColor: "#E0647A" }} variant="contained">Purchase</Button>
               </NavLink>
 
             </CardActions>

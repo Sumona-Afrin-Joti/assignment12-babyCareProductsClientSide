@@ -41,7 +41,7 @@ const ManageProducts = () => {
     <Container className="mt-5">
       <Box sx={{ textAlign: "center" }}>
 
-        <Typography variant="i" sx={{ fontSize: "25px", }} >For Any Occasion</Typography>
+        <Typography variant="i" sx={{ fontSize: "35px", }} >For Any Occasion</Typography>
         <Typography variant="h3" sx={{ color: '#EF0081' }}>Special Products</Typography>
 
 
@@ -68,7 +68,7 @@ const ManageProducts = () => {
                 </CardContent>
                 <CardActions sx={{ display: "flex", justifyContent: "space-between" }}>
 
-                  <Button sx={{ backgroundColor: "#E0647A" }} onClick={() => handleRemove(product._id)} variant="contained">Remove Product</Button>
+                  <Button className="buttonHover" sx={{ backgroundColor: "#E0647A" }} onClick={() => handleRemove(product._id)} variant="contained">Remove Product</Button>
 
 
                   <Typography variant="i">

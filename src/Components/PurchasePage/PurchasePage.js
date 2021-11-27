@@ -79,7 +79,7 @@ const PurchasePage = () => {
                 <button onClick={handleIncrease} className="increaseButton">+</button></span> </p>
               <p>Subtotal: ${subTotal}.00 </p>
 
-              <Button style={{ backgroundColor: '#E0647A', marginTop: '20px' }} onClick={handleOpen} >Proceed To Purchase</Button>
+              <Button style={{ backgroundColor: '#E0647A', marginTop: '20px', border: 'none' }} onClick={handleOpen} >Proceed To Purchase</Button>
 
             </Col>
 

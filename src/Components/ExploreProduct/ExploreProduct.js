@@ -31,7 +31,7 @@ const ExploreProduct = ({ product }) => {
 
           <NavLink style={{ textDecoration: 'none' }} to={`/purchase/${product._id}`}>
 
-            <Button sx={{ backgroundColor: "#E0647A" }} variant="contained">Purchase</Button>
+            <Button className="buttonHover" sx={{ backgroundColor: "#E0647A" }} variant="contained">Purchase</Button>
           </NavLink>
 
 

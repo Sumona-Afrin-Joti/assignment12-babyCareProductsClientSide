@@ -24,3 +24,6 @@
     display: block;
     text-align: center;
 }
+.textDecoration{
+text-decoration: none;
+}

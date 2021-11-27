@@ -100,7 +100,7 @@ const ManageAllOrders = () => {
                   <TableCell align="right">{row.email}</TableCell>
                   <TableCell align="right">{row.status}</TableCell>
                   <TableCell align="right">
-                    <Button onClick={() => handleUpdate(row._id)} title="confirm to shipping" className="me-1" variant="success" >
+                    <Button onClick={() => handleUpdate(row._id)} title="confirm to shipping" className="me-1" style={{ backgroundColor: "#E0647A", border: "none" }} >
 
                       <FontAwesomeIcon icon={faCheck} />
 

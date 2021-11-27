@@ -6,7 +6,7 @@ import './Products.css';
 import Box from '@mui/material/Box';
 import { Button, CircularProgress, Grid, Typography } from '@mui/material';
 import useAuth from '../../hooks/useAuth'
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 
 const Products = () => {
@@ -44,7 +44,7 @@ const Products = () => {
         </Grid>}
 
       <div className="text-center">
-        <Link to="/exploreProducts"><Button variant="contained" sx={{ backgroundColor: "#E0647A" }} >Explore Products</Button></Link>
+        <NavLink className="textDecoration" to="/exploreProducts"><Button variant="contained" style={{ backgroundColor: "#E0647A" }} >Explore Products</Button></NavLink>
 
       </div>
 

@@ -76,7 +76,7 @@ function Dashboard(props) {
         }
 
         <ListItem>
-          <NavLink to="/" style={{ textDecoration: 'none' }}><Button variant="contained" sx={{ backgroundColor: "#E0647A" }} onClick={logOut} >Log Out</Button></NavLink>
+          <NavLink to="/" style={{ textDecoration: 'none' }}><Button className="buttonHover" variant="contained" sx={{ backgroundColor: "#E0647A" }} onClick={logOut} >Log Out</Button></NavLink>
         </ListItem>
 
       </List>
