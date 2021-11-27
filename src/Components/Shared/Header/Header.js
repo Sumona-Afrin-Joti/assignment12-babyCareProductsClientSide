@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
@@ -8,12 +8,26 @@ import { Avatar } from '@mui/material';
 
 const Header = () => {
   const { user, logOut } = useAuth();
+  const [navbarClass, setNavbarClass] = useState(false);
+
+
+  const changeHeaderColor = () => {
+    if (window.scrollY > 90) {
+
+      setNavbarClass(true);
+    }
+    else {
+      setNavbarClass(false)
+    }
+  }
+
+  window.addEventListener('scroll', changeHeaderColor);
 
   const img = <Avatar alt={user.displayName} src="/static/images/avatar/1.jpg" />
 
   return (
 
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="light" expand="lg" sticky="top" className={navbarClass ? 'navbar active' : 'navbar'} >
       <Container>
         <Navbar.Brand to="#home">
           <img className="logo" src={logo} alt="" />
@@ -24,31 +38,19 @@ const Header = () => {
           <Nav className="ms-auto d-flex justify-content-center align-items-center">
 
 
-            <Nav.Link as={NavLink} activeStyle={{
-              fontWeight: "bold",
-              color: "#A47355"
-            }} className="menu-color" to="/home">Home</Nav.Link>
+            <Nav.Link as={NavLink} activeClassName="selected" className={navbarClass ? "active" : "menu-color"} to="/home">Home</Nav.Link>
 
 
 
 
-            <Nav.Link as={NavLink} activeStyle={{
-              fontWeight: "bold",
-              color: "#A47355"
-            }} to="/exploreProducts">Explore Product</Nav.Link>
+            <Nav.Link as={NavLink} activeClassName="selected" to="/exploreProducts" className={navbarClass ? "menu-color active" : "menu-color"}>Explore Product</Nav.Link>
 
 
 
-            <Nav.Link as={NavLink} activeStyle={{
-              fontWeight: "bold",
-              color: "#A47355"
-            }} to="/dashboard">Dashboard</Nav.Link>
+            <Nav.Link as={NavLink} activeClassName="selected" to="/dashboard" className={navbarClass ? "active" : "menu-color"}>Dashboard</Nav.Link>
 
             {
-              !user.displayName && <Nav.Link as={NavLink} activeStyle={{
-                fontWeight: "bold",
-                color: "#A47355"
-              }} to="/login">Login</Nav.Link>
+              !user.displayName && <Nav.Link as={NavLink} activeClassName="selected" to="/login" className={navbarClass ? "active" : "menu-color"}>Login</Nav.Link>
             }
 
 

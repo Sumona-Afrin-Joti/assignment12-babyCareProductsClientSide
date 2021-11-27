@@ -1,6 +1,9 @@
 import { Box } from '@mui/system';
 import React from 'react';
+import { Col, Row } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
+import './MakeAdmin.css';
+
 
 const MakeAdmin = () => {
   const { register, handleSubmit, reset } = useForm();
@@ -30,16 +33,19 @@ const MakeAdmin = () => {
 
   };
   return (
-    <div >
+    <Row>
+      <Col sm={12} md={3}></Col>
+      <Col sm={12} md={6}>
+        <div className="makeAdminInputDiv" >
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <input className="makeAdminInput" placeholder="Enter Email" {...register("email")} required />
+            <button className="makeAdminButton" type="submit">Make Admin</button>
+          </form>
+        </div>
+      </Col>
+      <Col sm={12} md={3}></Col>
+    </Row>
 
-      <Box sx={{ display: 'flex', justifyContent: 'center', p: 1, m: 1, bgcolor: 'background.paper' }}>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <input placeholder="Enter Email" {...register("email")} required />
-          <button type="submit">Make Admin</button>
-        </form>
-      </Box>
-
-    </div>
 
   );
 };

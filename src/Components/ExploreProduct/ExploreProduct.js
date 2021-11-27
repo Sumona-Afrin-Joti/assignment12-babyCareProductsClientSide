@@ -16,7 +16,7 @@ const ExploreProduct = ({ product }) => {
         <CardMedia
           component="img"
           alt="green iguana"
-          height=""
+          height="400px"
           image={product.img}
         />
         <CardContent>
@@ -31,7 +31,7 @@ const ExploreProduct = ({ product }) => {
 
           <NavLink style={{ textDecoration: 'none' }} to={`/purchase/${product._id}`}>
 
-            <Button sx={{ backgroundColor: "#EF0081" }} variant="contained">Purchase</Button>
+            <Button sx={{ backgroundColor: "#E0647A" }} variant="contained">Purchase</Button>
           </NavLink>
 
 

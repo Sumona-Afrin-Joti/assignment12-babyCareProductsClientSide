@@ -1,4 +1,3 @@
-import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Paper, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 import React, { useEffect, useState } from 'react';
@@ -6,6 +5,8 @@ import { Button, Container } from 'react-bootstrap';
 import Table from '@mui/material/Table';
 import swal from 'sweetalert';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import DeleteIcon from '@mui/icons-material/Delete';
+
 
 const ManageAllOrders = () => {
   const [allOrders, setAllOrders] = useState([]);
@@ -70,44 +71,55 @@ const ManageAllOrders = () => {
 
   return (
     <Container>
-
-      <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
-          <TableHead>
-            <TableRow>
-              <TableCell>Order Id</TableCell>
-              <TableCell align="right">Product Name</TableCell>
-              <TableCell align="right">User Email</TableCell>
-              <TableCell align="right">Status</TableCell>
-              <TableCell align="right"> Action </TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {allOrders.map((row) => (
-              <TableRow
-                key={row._id}
-                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-              >
-                <TableCell component="th" scope="row">
-                  {row._id}
-                </TableCell>
-                <TableCell align="right">{row.purchsed.product_name}</TableCell>
-                <TableCell align="right">{row.email}</TableCell>
-                <TableCell align="right">{row.status}</TableCell>
-                <TableCell align="right">
-                  <Button onClick={() => handleUpdate(row._id)} title="confirm to shipping" className="me-1" variant="success" >
-                    <FontAwesomeIcon icon={faCheck} />
-                  </Button>
-                  <Button title="Delete" variant="danger" onClick={() => handleDelete(row._id)}>
-                    <FontAwesomeIcon icon={faTrashAlt} />
-                  </Button>
-
-                </TableCell>
+      {
+        allOrders.length === 0 ? <p>You Didn't Order Yet </p> : <><TableContainer component={Paper}>
+          <Table sx={{ minWidth: 650 }} aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <TableCell>Order Id</TableCell>
+                <TableCell align="right">Product Name</TableCell>
+                <TableCell align="right">Quantity</TableCell>
+                <TableCell align="right">Subtotal</TableCell>
+                <TableCell align="right">User Email</TableCell>
+                <TableCell align="right">Status</TableCell>
+                <TableCell align="right"> Action </TableCell>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
+            </TableHead>
+            <TableBody>
+              {allOrders.map((row) => (
+                <TableRow
+                  key={row._id}
+                  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                >
+                  <TableCell component="th" scope="row">
+                    {row._id}
+                  </TableCell>
+                  <TableCell align="right">{row.purchsed.description}</TableCell>
+                  <TableCell align="right">{row.purchsed.quantity}</TableCell>
+                  <TableCell align="right">{row.purchsed.subTotal}</TableCell>
+                  <TableCell align="right">{row.email}</TableCell>
+                  <TableCell align="right">{row.status}</TableCell>
+                  <TableCell align="right">
+                    <Button onClick={() => handleUpdate(row._id)} title="confirm to shipping" className="me-1" variant="success" >
+
+                      <FontAwesomeIcon icon={faCheck} />
+
+                    </Button>
+                    <Button title="Delete" variant="danger" onClick={() => handleDelete(row._id)}>
+
+                      <DeleteIcon></DeleteIcon>
+
+                    </Button>
+
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+        </>
+      }
+
     </Container>
   );
 };

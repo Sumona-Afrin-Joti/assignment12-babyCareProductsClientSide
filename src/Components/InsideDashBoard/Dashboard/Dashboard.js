@@ -26,6 +26,7 @@ import Button from '@mui/material/Button';
 import DashboardHome from '../DashboardHome/DashboardHome';
 import img from '../../../images/logo.png';
 import AdminRoute from '../../AdminRoute/AdminRoute';
+import "./Dashboard.css"
 
 const drawerWidth = 240;
 
@@ -49,58 +50,33 @@ function Dashboard(props) {
       </Toolbar>
 
       <List sx={{ mt: 5 }}>
-
+        <ListItem><NavLink to="/home" activeClassName="selected" >Home</NavLink></ListItem>
         {
           !isAdmin && <>
-            <ListItem><NavLink to="/">Home</NavLink></ListItem>
-            <ListItem><NavLink activeStyle={{
-              fontWeight: "bold",
-              color: "#A47355"
-            }} to={`${url}`}>DashboardHome</NavLink></ListItem>
+            <ListItem><NavLink to={`${url}`} activeClassName="selected">DashboardHome</NavLink></ListItem>
 
-            <ListItem><NavLink activeStyle={{
-              fontWeight: "bold",
-              color: "#A47355"
-            }} to={`${url}/pay`}>Payment</NavLink></ListItem>
-            <ListItem><NavLink activeStyle={{
-              fontWeight: "bold",
-              color: "#A47355"
-            }} to={`${url}/myOrders`}>My Orders</NavLink></ListItem>
+            <ListItem><NavLink to={`${url}/pay`} activeClassName="selected">Payment</NavLink></ListItem>
+            <ListItem><NavLink to={`${url}/myOrders`} activeClassName="selected">My Orders</NavLink></ListItem>
 
-            <ListItem><NavLink activeStyle={{
-              fontWeight: "bold",
-              color: "#A47355"
-            }} to={`${url}/review`}>Review</NavLink></ListItem>
+            <ListItem><NavLink to={`${url}/review`} activeClassName="selected">Add Review</NavLink></ListItem>
           </>
         }
 
 
         {
           isAdmin && <>
-            <ListItem><NavLink activeStyle={{
-              fontWeight: "bold",
-              color: "#A47355"
-            }} to={`${url}/manageAllOrders`}>Manage All Orders</NavLink></ListItem>
+            <ListItem><NavLink activeClassName="selected" to={`${url}/manageAllOrders`}>Manage All Orders</NavLink></ListItem>
 
-            <ListItem><NavLink activeStyle={{
-              fontWeight: "bold",
-              color: "#A47355"
-            }} to={`${url}/addProduct`}>Add Product</NavLink></ListItem>
+            <ListItem><NavLink activeClassName="selected" to={`${url}/addProduct`}>Add Product</NavLink></ListItem>
 
-            <ListItem><NavLink activeStyle={{
-              fontWeight: "bold",
-              color: "#A47355"
-            }} to={`${url}/makeAdmin`}>Make Admin</NavLink></ListItem>
+            <ListItem><NavLink activeClassName="selected" to={`${url}/makeAdmin`}>Make Admin</NavLink></ListItem>
 
-            <ListItem><NavLink activeStyle={{
-              fontWeight: "bold",
-              color: "#A47355"
-            }} to={`${url}/manageProducts`}>Manage Products</NavLink></ListItem>
+            <ListItem><NavLink activeClassName="selected" to={`${url}/manageProducts`}>Manage Products</NavLink></ListItem>
           </>
         }
 
         <ListItem>
-          <NavLink to="/" style={{ textDecoration: 'none' }}><Button variant="contained" sx={{ backgroundColor: "#EF0081" }} onClick={logOut} >Log Out</Button></NavLink>
+          <NavLink to="/" style={{ textDecoration: 'none' }}><Button variant="contained" sx={{ backgroundColor: "#E0647A" }} onClick={logOut} >Log Out</Button></NavLink>
         </ListItem>
 
       </List>
@@ -121,7 +97,7 @@ function Dashboard(props) {
             ml: { sm: `${drawerWidth}px` },
           }}
         >
-          <Toolbar>
+          <Toolbar sx={{ backgroundColor: "#E0647A" }} >
             <IconButton
               color="inherit"
               aria-label="open drawer"

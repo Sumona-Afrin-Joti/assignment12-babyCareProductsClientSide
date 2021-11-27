@@ -1,4 +1,4 @@
-import { Button, Card, CardActions, CardContent, CardMedia, Grid, Typography } from '@mui/material';
+import { Button, Card, CardActions, CardContent, CardMedia, CircularProgress, Grid, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
 import { Container } from 'react-bootstrap';
@@ -9,8 +9,6 @@ const ManageProducts = () => {
   const { products, setProducts } = useProducts();
 
   const handleRemove = (id) => {
-
-
     swal({
       title: "Are you sure?",
       text: "Once deleted, you will not be able to recover this imaginary file!",
@@ -38,16 +36,6 @@ const ManageProducts = () => {
           swal("Your imaginary file is safe!");
         }
       });
-    fetch(`http://localhost:5000/products/${id}`, {
-      method: 'DELETE'
-    })
-      .then(res => res.json())
-      .then(data => {
-        if (data.deletedCount > 0) {
-          const remainingProducts = products.filter(product => product._id !== id)
-          setProducts(remainingProducts)
-        }
-      })
   }
   return (
     <Container className="mt-5">
@@ -59,38 +47,41 @@ const ManageProducts = () => {
 
       </Box>
 
-      <Grid container spacing={4} sx={{ my: 5 }}>
-        {
-          products.map(product => <Grid key={product._id} item xs={12} md={4}>
-            <Card sx={{ maxWidth: 345 }}>
-              <CardMedia
-                component="img"
-                alt="green iguana"
-                height=""
-                image={product.img}
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                  {product.product_name}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  {product.description}
-                </Typography>
-              </CardContent>
-              <CardActions sx={{ display: "flex", justifyContent: "space-between" }}>
+      {
+        products.length === 0 ? <div style={{ textAlign: "center" }} ><CircularProgress color="inherit"></CircularProgress></div> : <Grid container spacing={4} sx={{ my: 5 }}>
+          {
+            products.map(product => <Grid key={product._id} item xs={12} md={4}>
+              <Card sx={{ maxWidth: 345 }}>
+                <CardMedia
+                  component="img"
+                  alt="green iguana"
+                  height="400px"
+                  image={product.img}
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="div">
+                    {product.product_name}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    {product.description}
+                  </Typography>
+                </CardContent>
+                <CardActions sx={{ display: "flex", justifyContent: "space-between" }}>
 
-                <Button onClick={() => handleRemove(product._id)} color="error" variant="contained">Remove Product</Button>
+                  <Button sx={{ backgroundColor: "#E0647A" }} onClick={() => handleRemove(product._id)} variant="contained">Remove Product</Button>
 
 
-                <Typography variant="i">
-                  Price: {product.price}
-                </Typography>
-              </CardActions>
-            </Card>
-          </Grid>)
-        }
+                  <Typography variant="i">
+                    Price: {product.price}
+                  </Typography>
+                </CardActions>
+              </Card>
+            </Grid>)
+          }
 
-      </Grid>
+        </Grid>
+      }
+
     </Container>
   );
 };

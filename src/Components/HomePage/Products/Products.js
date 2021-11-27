@@ -4,28 +4,48 @@ import useProducts from '../../hooks/useProducts';
 import Product from '../Product/Product';
 import './Products.css';
 import Box from '@mui/material/Box';
-import { Grid, Typography } from '@mui/material';
+import { Button, CircularProgress, Grid, Typography } from '@mui/material';
+import useAuth from '../../hooks/useAuth'
 
 
 const Products = () => {
   const { products } = useProducts();
+  const { isLoading } = useAuth();
+
   return (
 
     <Container className="mt-5">
       <Box sx={{ textAlign: "center" }}>
 
-        <Typography variant="i" sx={{ fontSize: "25px", }} >For Any Occasion</Typography>
-        <Typography variant="h3" sx={{ color: '#EF0081' }}>Special Products</Typography>
+        <Typography variant="i" sx={{ fontSize: "2.9rem", color: "#585B6D" }} >Advanced Natural Skin Care Products
+        </Typography>
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <hr style={{ width: "30%", backgroundColor: "#585B6D", height: '5px' }} />
+        </div>
+
+        <Typography sx={{ fontSize: "2.9rem", color: "#585B6D" }}>For Your Baby</Typography>
+
 
 
       </Box>
 
-      <Grid container spacing={4} sx={{ my: 5 }}>
-        {
-          products.slice(0, 6).map(product => <Product key={product._id} product={product}></Product>)
-        }
 
-      </Grid>
+      {isLoading ?
+        <div style={{ textAlign: "center" }}>
+          <CircularProgress color="inherit"></CircularProgress>
+        </div> :
+
+        <Grid container spacing={4} sx={{ my: 5 }}>
+          {
+            products.slice(0, 6).map(product => <Product key={product._id} product={product}></Product>)
+          }
+
+        </Grid>}
+
+      <div className="text-center">
+        <Button variant="contained" sx={{ backgroundColor: "#E0647A" }} >Explore Products</Button>
+      </div>
+
     </Container>
 
   );

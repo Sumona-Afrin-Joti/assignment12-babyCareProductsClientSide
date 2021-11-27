@@ -1,11 +1,62 @@
-.banner{
-    background-image: url('../../../images/bg.jpg');
+.banner1{
+    background-image: url('../../../images/sliderBaby1.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
     width: 100%;
     position: relative;
+
+}
+.banner2{
+    background-image: url('../../../images/sliderBaby2.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+
+}
+.banner3{
+    background-image: url('../../../images/sliderBaby3.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+
+}
+.caption1{
+  position: absolute;
+  top:30%;
+}
+
+.caption2{
+  position: absolute;
+  top:30%;
+
+}
+.caption3{
+  position: absolute;
+  top:30%;
+
+}
+.caption1 h5{
+  font-size: 2.5rem;
+}
+.caption2 h5{
+  font-size: 2.5rem;
+}
+.caption3 h5{
+  font-size: 2.5rem;
+}
+.sliderButton{
+  border: none;
+  border-radius: 15px;
+  padding: 5px 15px;
+  margin: 10px;
 }
 
 

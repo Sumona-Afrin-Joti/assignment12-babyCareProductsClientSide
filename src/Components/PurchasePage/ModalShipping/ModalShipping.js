@@ -92,7 +92,7 @@ const ModalShipping = ({ handleOpen, handleClose, open, purchingProduct }) => {
                       <input required placeholder="Phone" className="w-100 form-control mb-3" {...register("phone", { required: true })} />
                     </Col>
                   </Row>
-                  <Button variant="success" type="submit" style={{ backgroundColor: '#EF0081', color: 'white' }} >
+                  <Button variant="success" type="submit" style={{ backgroundColor: '#E0647A', color: 'white' }} >
                     Place Order
                   </Button>
                 </form>

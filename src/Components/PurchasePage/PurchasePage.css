@@ -1,6 +1,25 @@
-.details-img{
-    width: 400px;
-    height: 400px;
-    border-radius: 50%;
-    object-fit: cover;
+.size button{
+  margin-left: 10px;
+  border: 1px solid #E0647A;
+  border-radius: 10px;
+}
+.input{
+  border: 1px solid #E0647A;
+  padding: 5px 5px;
+}
+.decreaseButton{
+border-top: 1px solid #E0647A;
+border-right: none;
+border-bottom: 1px solid #E0647A;
+border-left: 1px solid #E0647A;
+padding: 5px 10px;
+border-radius: 15px 0 0 15px;
+}
+.increaseButton{
+border-top: 1px solid #E0647A;
+border-right: 1px solid #E0647A;
+border-bottom: 1px solid #E0647A;
+border-left: none;
+padding: 5px 10px;
+border-radius: 0px 15px 15px 0px;
 }

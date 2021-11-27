@@ -74,7 +74,7 @@ const Footer = () => {
 
           <Col md={3}>
             <Stack gap={2}>
-              <h5>ABOUT Kids Fashion</h5>
+              <h5>ABOUT BABS</h5>
               <ul className="text-secondary">
                 <li>We have been creating relaxed, comfortable fashion for everyone and every day for more than 10 years</li>
                 <li className="mt-4">Address : 12 Main Street Pt. London Phone : +44 3656 4567 contact@aventura.com</li>
@@ -91,7 +91,7 @@ const Footer = () => {
         <Row className="copy-right-section" style={{ display: "flex", justifyContent: 'center' }} >
 
           <Col md={4} xs={12} className="p-0 d-flex justify-content-center mt-5">
-            <small>Copyright 2021 Kids Fashion. All Right Reserved</small>
+            <small>Copyright 2021 Babs. All Right Reserved</small>
           </Col>
 
           <Col md={4} xs={12} className=" p-0 d-flex justify-content-md-end justify-content-center mt-5">

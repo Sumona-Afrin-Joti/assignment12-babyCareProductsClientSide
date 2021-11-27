@@ -11,7 +11,7 @@ const HomePageReview = ({ review }) => {
   const { reviewers_img, reviewers_name, description, rating } = review;
 
   return (
-    <Grid item xs={6} md={3} sx={{ padding: '10px 0px 10px 0px !important' }}>
+    <Grid item xs={12} md={3} sx={{ padding: '10px 0px 10px 0px !important' }}>
       <Box sx={{ display: "flex", justifyContent: "center" }}>
         <Avatar alt={reviewers_name.slice(0)} src={reviewers_img} />
       </Box>

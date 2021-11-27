@@ -1,0 +1,17 @@
+.makeAdminInputDiv{
+  position: relative;
+}
+.makeAdminInput{
+border: none;
+padding: 10px 20px;
+background-color: #EFEFEF;
+width: 100%;
+}
+.makeAdminButton{
+  border: 1px solid black;
+  padding: 9px 19px;
+  border-radius: 0px 10px 10px 0px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}

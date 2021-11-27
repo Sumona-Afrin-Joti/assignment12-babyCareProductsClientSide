@@ -60,7 +60,7 @@ const Review = () => {
                   <input required placeholder=" give rating within 5" className="w-100 form-control mb-3" {...register("rating", { required: true })} />
                 </Col>
               </Row>
-              <Button className="button" type="submit">
+              <Button style={{ backgroundColor: "#E0647A", border: "none" }} className="button" type="submit">
                 Add Review
               </Button>
             </form>

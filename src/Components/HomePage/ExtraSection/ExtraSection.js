@@ -11,11 +11,11 @@ import stactImg4 from '../../../images/stackImg4.png'
 
 const ExtraSection = () => {
   return (
-    <Container sx={{ my: 5 }}>
+    <Container style={{ marginTop: '100px', marginBottom: '100px' }}>
 
       <Stack spacing={2} sx={{ textAlign: 'center' }}>
         <Typography variant="h5" style={{ color: "gray" }} >YOUR TRUST, OUR PRODUCTS</Typography>
-        <Typography variant="h3">Pellentesque posuere orci lobortis scelerisque blandit. Donec id tellus lacinia an, tincidun”
+        <Typography variant="h2" style={{ fontSize: '50px', marginBottom: "30px" }} >Pellentesque posuere orci lobortis scelerisque blandit. Donec id tellus lacinia an, tincidun”
           - Hellen Miller</Typography>
 
         <Grid container spacing={2} >

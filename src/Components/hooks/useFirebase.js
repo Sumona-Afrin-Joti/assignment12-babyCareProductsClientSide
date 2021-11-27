@@ -150,6 +150,7 @@ const useFirebase = () => {
     user,
     logOut,
     isLoading,
+    setIsLoading,
     isAdmin
   }
 

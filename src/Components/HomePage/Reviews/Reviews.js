@@ -15,14 +15,14 @@ const Reviews = () => {
       .then(data => setReviews(data))
   }, [])
   return (
-    <Container className="my-5">
+    <Container style={{ marginTop: '100px', marginBottom: '100px' }}>
 
       <Box sx={{ textAlign: 'center' }}>
 
-        <Typography variant="h5">
+        <Typography variant="h5" sx={{ my: 2 }}>
           Latest Testimonials
         </Typography>
-        <Typography variant="h3">
+        <Typography variant="h3" sx={{ color: '#E0647A' }}>
           What They Said
         </Typography>
       </Box>
