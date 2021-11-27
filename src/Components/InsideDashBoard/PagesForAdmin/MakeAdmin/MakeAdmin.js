@@ -1,4 +1,3 @@
-import { Box } from '@mui/system';
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
@@ -19,7 +18,6 @@ const MakeAdmin = () => {
       })
         .then(res => res.json())
         .then(data => {
-          console.log(data)
           if (data.modifiedCount > 0 || data.upsertedCount > 0) {
             alert('admin made successfully')
 

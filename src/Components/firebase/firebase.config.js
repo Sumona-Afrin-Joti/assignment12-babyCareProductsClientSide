@@ -1,10 +1,10 @@
 const firebaseConfig = {
-  apiKey: "AIzaSyAic7EADqRCJyTtb-dhZNO7ZL8VIPAnb6o",
-  authDomain: "assignment-12-90679.firebaseapp.com",
-  projectId: "assignment-12-90679",
-  storageBucket: "assignment-12-90679.appspot.com",
-  messagingSenderId: "1098337169119",
-  appId: "1:1098337169119:web:7a2b234ffb11189ec4c36a"
+  apiKey: "AIzaSyAzCFovxAflxbXo80OrEUmhM-zo8lzqt24",
+  authDomain: "baby-care-389d2.firebaseapp.com",
+  projectId: "baby-care-389d2",
+  storageBucket: "baby-care-389d2.appspot.com",
+  messagingSenderId: "970812098974",
+  appId: "1:970812098974:web:d4370fc966d9e55ec56e8f"
 };
 
 export default firebaseConfig;

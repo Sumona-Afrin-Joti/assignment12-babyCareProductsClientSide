@@ -50,13 +50,13 @@ const Header = () => {
             <Nav.Link as={NavLink} activeClassName="selected" to="/dashboard" className={navbarClass ? "active" : "menu-color"}>Dashboard</Nav.Link>
 
             {
-              !user.displayName && <Nav.Link as={NavLink} activeClassName="selected" to="/login" className={navbarClass ? "active" : "menu-color"}>Login</Nav.Link>
+              !user.email && <Nav.Link as={NavLink} activeClassName="selected" to="/login" className={navbarClass ? "active" : "menu-color"}>Login</Nav.Link>
             }
 
 
 
             {
-              user.displayName && <NavDropdown title={img} id="collasible-nav-dropdown">
+              user.email && <NavDropdown title={img} id="collasible-nav-dropdown">
                 <NavDropdown.Item to="#action/3.1">{user.displayName}</NavDropdown.Item>
                 <NavDropdown.Item onClick={logOut}>Log Out</NavDropdown.Item>
 

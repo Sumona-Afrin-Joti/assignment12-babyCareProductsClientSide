@@ -129,18 +129,13 @@ const useFirebase = () => {
     fetch(`https://floating-river-34453.herokuapp.com/users?email=${user?.email}`)
       .then(res => res.json())
       .then(data => {
-        if (data?.role) {
-          setIsAdmin(true);
-        }
-        else {
-          setIsAdmin(false)
-        }
+        console.log(data);
+        setIsAdmin(data);
       })
       .catch(error => {
 
       })
   }, [user.email]);
-
 
   return {
     registerUser,
