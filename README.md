@@ -1,11 +1,9 @@
-# Getting Started with Kids Fasion
+# Getting Started with Baby Care
 
-Site Link [https://assignment-12-90679.web.app/](https://assignment-12-90679.web.app/).
+Site Link [https://baby-care-389d2.web.app/](https://baby-care-389d2.web.app/).
 
 ## About
-We have been creating relaxed, comfortable fashion for everyone and every day for more than 10 years. Clothes for children, designed in Bangladesh, produced ethically and sold in more than 10 different countries every season
-
-Today we are present in more than 4,000 multi-brand points of sale across four continents. We work every day to reach further and further. Our collections prominently feature colours and prints, as well as comfortable, easy fabrics that can be easily combined.
+We have been creating Natural products for babies every day for more than 10 years.
 
 ### Key Points
 

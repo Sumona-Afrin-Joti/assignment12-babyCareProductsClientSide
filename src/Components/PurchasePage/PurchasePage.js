@@ -16,7 +16,7 @@ const PurchasePage = () => {
   let [inputValue, setInputValue] = useState(1)
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const subTotal = dependentPrice * inputValue
+  const subTotal = dependentPrice * inputValue;
 
   useEffect(() => {
     fetch("https://floating-river-34453.herokuapp.com/products")
@@ -66,13 +66,17 @@ const PurchasePage = () => {
               <p>Nam tempus turpis at metus scelerisque placerat nulla deumantos solicitud felis. Pellentesque diam dolor, elementum etos lobortis des mollis ut risus. Sedcus faucibus an sullamcorper mattis drostique des commodo pharetras loremos.Donec pretium egestas sapien et mollis. Sample Unordered List Comodous in tempor ullamcorper miaculis Pellentesque vitae neque mollis urna mattis...</p>
               <i>Price: {dependentPrice} </i> <br />
               <div className="size">
-                Size: <button onClick={(e) => setDependentPrice(price)}>10g</button>
-                <button onClick={(e) => setDependentPrice(35)}>20g</button>
-                <button onClick={(e) => setDependentPrice(40)}>25g</button>
+                Size: <button onClick={() => setDependentPrice(price)}>10g</button>
+                <button onClick={() => setDependentPrice(35)}>20g</button>
+                <button onClick={() => setDependentPrice(40)}>25g</button>
               </div>
               <p>Brand: First Step</p>
 
-              <p> Quantity: <span> <button onClick={handleDecrease} className="decreaseButton">-</button><input className="input" value={inputValue} style={{ width: "30px", textAlign: "center" }} type="text" /><button onClick={handleIncrease} className="increaseButton">+</button></span> </p>
+              <p> Quantity: <span>
+                <button onClick={handleDecrease} className="decreaseButton">-</button>
+
+                <input className="input" value={inputValue} style={{ width: "30px", textAlign: "center" }} type="text" />
+                <button onClick={handleIncrease} className="increaseButton">+</button></span> </p>
               <p>Subtotal: ${subTotal}.00 </p>
 
               <Button style={{ backgroundColor: '#E0647A', marginTop: '20px' }} onClick={handleOpen} >Proceed To Purchase</Button>
