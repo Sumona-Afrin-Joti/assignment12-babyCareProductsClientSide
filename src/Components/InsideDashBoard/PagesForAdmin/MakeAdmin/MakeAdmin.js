@@ -24,8 +24,6 @@ const MakeAdmin = () => {
           }
           reset()
         })
-
-      console.log(data)
     }
 
 

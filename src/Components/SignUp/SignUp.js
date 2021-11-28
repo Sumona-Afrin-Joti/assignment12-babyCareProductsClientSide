@@ -1,4 +1,4 @@
-import { Container, Grid, Typography, TextField, Button, CircularProgress, Alert } from '@mui/material';
+import { Container, Grid, Typography, TextField, Button, CircularProgress } from '@mui/material';
 import React, { useState } from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
 import useAuth from '../hooks/useAuth';
@@ -28,7 +28,6 @@ const SignUp = () => {
 
     registerUser(loginData.email, loginData.password, loginData.name, history)
   }
-  console.log(loginData)
 
   return (
     <Container>

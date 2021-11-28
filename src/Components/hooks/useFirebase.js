@@ -57,7 +57,6 @@ const useFirebase = () => {
 
   const saveUserToDb = (email, displayName, method) => {
     const user = { email, displayName };
-    console.log(user)
 
     fetch('https://floating-river-34453.herokuapp.com/users', {
       method: method,
@@ -67,7 +66,9 @@ const useFirebase = () => {
       body: JSON.stringify(user)
     })
       .then(res => res.json())
-      .then(data => console.log(data))
+      .then(data => {
+
+      })
 
   }
 

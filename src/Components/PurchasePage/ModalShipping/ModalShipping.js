@@ -25,7 +25,6 @@ const ModalShipping = ({ handleOpen, handleClose, open, purchingProduct }) => {
 
   const history = useHistory();
   const { user } = useAuth();
-  console.log('purching product', purchingProduct)
 
   const { register, reset, handleSubmit } = useForm();
 
@@ -44,7 +43,6 @@ const ModalShipping = ({ handleOpen, handleClose, open, purchingProduct }) => {
       .then(res => res.json())
       .then(result => {
         swal("Good job!", "Order Done", "success");
-        console.log(swal)
         handleClose()
         history.push('/dashboard/myOrders')
         reset();

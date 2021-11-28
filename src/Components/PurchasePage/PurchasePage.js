@@ -10,8 +10,8 @@ import './PurchasePage.css';
 const PurchasePage = () => {
   const { id } = useParams();
   let [details, setDetails] = useState({});
-  const { description, img, price } = details;
-  const [dependentPrice, setDependentPrice] = useState(price);
+  const { description, img } = details;
+  const [dependentPrice, setDependentPrice] = useState(details?.price);
   const [open, setOpen] = React.useState(false);
   let [inputValue, setInputValue] = useState(1)
   const handleOpen = () => setOpen(true);
@@ -24,7 +24,7 @@ const PurchasePage = () => {
       .then(data => {
         const matchedProduct = data.find(product => product._id === id);
         setDetails(matchedProduct);
-        setDependentPrice(matchedProduct.price)
+        setDependentPrice(matchedProduct?.price)
       })
       .catch(error => {
 
@@ -51,6 +51,7 @@ const PurchasePage = () => {
   return (
     <div>
       <Header></Header>
+
       {
         !dependentPrice ? <div style={{ textAlign: "center" }} ><CircularProgress color="inherit"></CircularProgress></div> : <Container className="my-5">
           <Row xs={1} md={2} className="my-5 d-flex justify-content-center align-items-center">
@@ -66,9 +67,9 @@ const PurchasePage = () => {
               <p>Nam tempus turpis at metus scelerisque placerat nulla deumantos solicitud felis. Pellentesque diam dolor, elementum etos lobortis des mollis ut risus. Sedcus faucibus an sullamcorper mattis drostique des commodo pharetras loremos.Donec pretium egestas sapien et mollis. Sample Unordered List Comodous in tempor ullamcorper miaculis Pellentesque vitae neque mollis urna mattis...</p>
               <i>Price: {dependentPrice} </i> <br />
               <div className="size">
-                Size: <button onClick={() => setDependentPrice(price)}>10g</button>
-                <button onClick={() => setDependentPrice(35)}>20g</button>
-                <button onClick={() => setDependentPrice(40)}>25g</button>
+                Size: <button onClick={() => setDependentPrice(details?.price)}>{details?.size1?.size}</button>
+                <button onClick={() => setDependentPrice(details?.size2?.price)}>{details?.size2?.size}</button>
+                <button onClick={() => setDependentPrice(details?.size3?.price)}>{details?.size3?.size}</button>
               </div>
               <p>Brand: First Step</p>
 
