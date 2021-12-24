@@ -51,16 +51,14 @@ function Dashboard(props) {
 
       <List sx={{ mt: 5 }}>
         <ListItem><NavLink to="/home" activeClassName="selected" >Home</NavLink></ListItem>
-        {
-          !isAdmin && <>
-            <ListItem><NavLink to={`${url}`} activeClassName="selected">DashboardHome</NavLink></ListItem>
 
-            <ListItem><NavLink to={`${url}/pay`} activeClassName="selected">Payment</NavLink></ListItem>
-            <ListItem><NavLink to={`${url}/myOrders`} activeClassName="selected">My Orders</NavLink></ListItem>
+        <ListItem><NavLink to={`${url}`} activeClassName="selected">DashboardHome</NavLink></ListItem>
 
-            <ListItem><NavLink to={`${url}/review`} activeClassName="selected">Add Review</NavLink></ListItem>
-          </>
-        }
+        <ListItem><NavLink to={`${url}/pay`} activeClassName="selected">Payment</NavLink></ListItem>
+        <ListItem><NavLink to={`${url}/myOrders`} activeClassName="selected">My Orders</NavLink></ListItem>
+
+        <ListItem><NavLink to={`${url}/review`} activeClassName="selected">Add Review</NavLink></ListItem>
+
 
 
         {

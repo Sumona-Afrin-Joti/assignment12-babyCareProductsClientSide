@@ -143,17 +143,11 @@ const useFirebase = () => {
 
   }
 
-  // useEffect(() => {
-  //   fetch(`https://floating-river-34453.herokuapp.com/users?email=${user?.email}`)
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       console.log(data);
-  //       setIsAdmin(data);
-  //     })
-  //     .catch(error => {
-
-  //     })
-  // }, [user.email]);
+  useEffect(() => {
+    fetch(`http://localhost:5000/users/${user.email}`)
+      .then(res => res.json())
+      .then(data => setIsAdmin(data.admin))
+  }, [user.email])
 
   return {
     registerUser,
