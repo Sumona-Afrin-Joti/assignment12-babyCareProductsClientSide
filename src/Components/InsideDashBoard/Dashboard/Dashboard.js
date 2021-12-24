@@ -43,6 +43,7 @@ function Dashboard(props) {
 
   let { path, url } = useRouteMatch();
 
+
   const drawer = (
     <div>
 
@@ -150,6 +151,7 @@ function Dashboard(props) {
           <Toolbar />
 
           <Switch>
+
             <Route exact path={path}>
               <DashboardHome></DashboardHome>
             </Route>
@@ -178,6 +180,7 @@ function Dashboard(props) {
             <AdminRoute path={`${path}/manageProducts`}>
               <ManageProducts></ManageProducts>
             </AdminRoute>
+
           </Switch>
 
         </Box>

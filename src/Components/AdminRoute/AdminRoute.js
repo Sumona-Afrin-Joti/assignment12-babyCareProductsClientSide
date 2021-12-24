@@ -8,19 +8,17 @@ const AdminRoute = ({ children, ...rest }) => {
   if (isLoading) {
     return <CircularProgress color="inherit" />
   }
-  if (!isAdmin) {
-    return <CircularProgress color="inherit" />
-  }
+
   return (
     <Route
       {...rest}
       render={({ location }) =>
-        isAdmin && user.email ? (
+        user.email && isAdmin ? (
           children
         ) : (
           <Redirect
             to={{
-              pathname: "/login",
+              pathname: "/",
               state: { from: location }
             }}
           />
