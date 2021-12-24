@@ -11,7 +11,7 @@ import { NavLink } from 'react-router-dom';
 
 const Products = () => {
   const { products } = useProducts();
-  const { isLoading } = useAuth();
+  // const { isLoading } = useAuth();
 
   return (
 
@@ -31,17 +31,26 @@ const Products = () => {
       </Box>
 
 
-      {isLoading ?
-        <div style={{ textAlign: "center" }}>
-          <CircularProgress color="inherit"></CircularProgress>
-        </div> :
+      {
 
-        <Grid container spacing={4} sx={{ my: 5 }}>
-          {
-            products.slice(0, 6).map(product => <Product key={product._id} product={product}></Product>)
-          }
 
-        </Grid>}
+        !products.length ?
+
+          <div style={{ textAlign: "center" }}>
+            <CircularProgress color="inherit"></CircularProgress>
+          </div>
+
+          :
+
+          <Grid container spacing={4} sx={{ my: 5 }}>
+            {
+              products.slice(0, 6).map(product => <Product key={product._id} product={product}></Product>)
+            }
+
+          </Grid>
+
+
+      }
 
       <div className="text-center">
         <NavLink className="textDecoration" to="/exploreProducts"><Button variant="contained" style={{ backgroundColor: "#E0647A" }} >Explore Products</Button></NavLink>

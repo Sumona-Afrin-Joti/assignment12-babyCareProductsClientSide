@@ -6,10 +6,12 @@ import './MakeAdmin.css';
 
 const MakeAdmin = () => {
   const { register, handleSubmit, reset } = useForm();
+
   const onSubmit = data => {
+
     const procced = window.confirm('do you want to make him/her admin ?');
     if (procced) {
-      fetch('https://floating-river-34453.herokuapp.com/users', {
+      fetch('https://floating-river-34453.herokuapp.com/users/admin', {
         method: 'PUT',
         headers: {
           'content-type': 'application/json'
@@ -18,7 +20,7 @@ const MakeAdmin = () => {
       })
         .then(res => res.json())
         .then(data => {
-          if (data.modifiedCount > 0 || data.upsertedCount > 0) {
+          if (data.modifiedCount > 0) {
             alert('admin made successfully')
 
           }

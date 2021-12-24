@@ -1,5 +1,5 @@
 import authInitialization from "../firebase/firebase.init";
-import { getAuth, createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword, onAuthStateChanged, signOut, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { useEffect, useState } from "react";
 import swal from 'sweetalert';
 
@@ -8,6 +8,7 @@ authInitialization()
 const useFirebase = () => {
 
   const auth = getAuth();
+  const googleProvider = new GoogleAuthProvider();
 
   const [user, setUser] = useState({});
   const [error, setError] = useState('');
@@ -18,12 +19,12 @@ const useFirebase = () => {
     setIsLoading(true);
     createUserWithEmailAndPassword(auth, email, password)
       .then((result) => {
-
+        setError('')
         const user = {
           email, displayName: name
         }
         setUser(user);
-        setError('')
+
         swal("Good job!", "successfully signed up!", "success");
 
         //updating profile
@@ -54,34 +55,14 @@ const useFirebase = () => {
       })
   }
 
-
-  const saveUserToDb = (email, displayName, method) => {
-    const user = { email, displayName };
-
-    fetch('https://floating-river-34453.herokuapp.com/users', {
-      method: method,
-      headers: {
-        'content-type': 'application/json'
-      },
-      body: JSON.stringify(user)
-    })
-      .then(res => res.json())
-      .then(data => {
-
-      })
-
-  }
-
-
-
   const loginUser = (email, password, location, history) => {
     setIsLoading(true)
 
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-
-        swal("Good job!", "successfully loged in!", "success");
         setError('');
+        swal("Good job!", "successfully loged in!", "success");
+
         const destination = location?.state?.from || '/';
         history.push(destination);
 
@@ -91,6 +72,25 @@ const useFirebase = () => {
 
       })
       .finally(() => setIsLoading(false))
+
+  }
+
+  const signInUsingGoogle = (location, history) => {
+    setIsLoading(true);
+    signInWithPopup(auth, googleProvider)
+      .then(result => {
+        const user = result.user;
+        console.log(user)
+        saveUserToDb(user.email, user.displayName, 'PUT');
+        const destination = location?.state?.from || '/';
+        history.push(destination)
+        setError('');
+      })
+      .catch((error) => {
+        setError(error.message);
+
+      })
+      .finally(() => setIsLoading(false));
 
   }
 
@@ -110,7 +110,7 @@ const useFirebase = () => {
 
     return () => unsubscribe;
 
-  }, [auth]);
+  }, []);
 
 
 
@@ -126,23 +126,41 @@ const useFirebase = () => {
 
   };
 
-  useEffect(() => {
-    fetch(`https://floating-river-34453.herokuapp.com/users?email=${user?.email}`)
+  const saveUserToDb = (email, displayName, method) => {
+    const user = { email, displayName };
+
+    fetch('https://floating-river-34453.herokuapp.com/users', {
+      method: method,
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(user)
+    })
       .then(res => res.json())
       .then(data => {
-        console.log(data);
-        setIsAdmin(data);
-      })
-      .catch(error => {
 
       })
-  }, [user.email]);
+
+  }
+
+  // useEffect(() => {
+  //   fetch(`https://floating-river-34453.herokuapp.com/users?email=${user?.email}`)
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       console.log(data);
+  //       setIsAdmin(data);
+  //     })
+  //     .catch(error => {
+
+  //     })
+  // }, [user.email]);
 
   return {
     registerUser,
     error,
     setError,
     loginUser,
+    signInUsingGoogle,
     user,
     logOut,
     isLoading,

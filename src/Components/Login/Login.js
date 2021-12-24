@@ -7,7 +7,7 @@ import useAuth from '../hooks/useAuth';
 
 const Login = () => {
   const [loginData, setLoginData] = useState({});
-  const { loginUser, isLoading, error, setError } = useAuth();
+  const { loginUser, signInUsingGoogle, isLoading, error, setError } = useAuth();
 
 
   const location = useLocation();
@@ -25,6 +25,10 @@ const Login = () => {
     setError('')
     loginUser(loginData.email, loginData.password, location, history)
   };
+
+  const handleGoogleSignIn = () => {
+    signInUsingGoogle(location, history)
+  }
 
   return (
     <Container>
@@ -74,6 +78,9 @@ const Login = () => {
           {
             isLoading && <CircularProgress color="inherit" />
           }
+
+          <p>..........................</p>
+          <Button onClick={handleGoogleSignIn} variant="contained" sx={{ backgroundColor: '#00e5ff' }}> Google Sign In</Button>
 
 
 

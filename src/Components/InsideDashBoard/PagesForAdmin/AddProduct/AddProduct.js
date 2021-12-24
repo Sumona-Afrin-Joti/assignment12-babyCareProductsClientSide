@@ -1,51 +1,72 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
-import { Button, Col, Container, Row } from 'react-bootstrap';
-import { Select } from '@mui/material';
+import { Col, Container, Row } from 'react-bootstrap';
+import { Button } from '@mui/material';
 
 const Review = () => {
-  const { register, reset, formState: { errors }, handleSubmit } = useForm();
+  const { register, handleSubmit } = useForm();
 
   const onSubmit = data => {
-    const { description, img, defaultPrice, priceTwo, priceThree, sizeOne, sizeTwo, sizeThree, stockOne, stockTwo, stockThree } = data
-    const newData = {
+    const { description, imageFile, defaultPrice, priceTwo, priceThree, sizeOne, sizeTwo, sizeThree, stockOne, stockTwo, stockThree } = data;
 
-      description,
-      img,
+
+    const img = imageFile[0]
+
+    const formData = new FormData();
+    formData.append('img', img);
+    formData.append('description', description);
+    formData.append('price', parseFloat(defaultPrice));
+
+
+
+    formData.append('size1', JSON.stringify({
+      size: sizeOne,
       price: parseFloat(defaultPrice),
-      size1: {
-        size: sizeOne,
-        price: parseFloat(defaultPrice),
-        stock: stockOne
-      },
-      size2: {
-        size: sizeTwo,
-        price: parseFloat(priceTwo),
-        stock: stockTwo
-      },
-      size3: {
-        size: sizeThree,
-        price: parseFloat(priceThree),
-        stock: stockThree
-      }
+      stock: stockOne
+    }));
+    formData.append('size2', JSON.stringify({
+      size: sizeTwo,
+      price: parseFloat(priceTwo),
+      stock: stockTwo
+    }));
+    formData.append('size3', JSON.stringify({
+      size: sizeThree,
+      price: parseFloat(priceThree),
+      stock: stockThree
+    }));
+    // const newData = {
 
-    }
+    //   description,
+    //   price: parseFloat(defaultPrice),
+    //   size1: {
+    //     size: sizeOne,
+    //     price: parseFloat(defaultPrice),
+    //     stock: stockOne
+    //   },
+    //   size2: {
+    //     size: sizeTwo,
+    //     price: parseFloat(priceTwo),
+    //     stock: stockTwo
+    //   },
+    //   size3: {
+    //     size: sizeThree,
+    //     price: parseFloat(priceThree),
+    //     stock: stockThree
+    //   }
 
-    fetch("https://floating-river-34453.herokuapp.com/products", {
-      method: "POST",
-      headers: {
-        'content-type': 'application/json'
-      },
-      body: JSON.stringify(newData)
+    // }
+
+    fetch('http://localhost:5000/products', {
+      method: 'POST',
+      body: formData
     })
-      .then(res => res.json())
-      .then(data => {
-        if (data.insertedId) {
-          alert('product added successfully');
-          reset();
-        }
+      .then(response => response.json())
+      .then(result => {
+        console.log('Success:', result);
       })
-
+      .catch(error => {
+        console.error('Error:', error);
+      });
 
   };
   return (
@@ -59,7 +80,11 @@ const Review = () => {
             <form onSubmit={handleSubmit(onSubmit)}>
               <Row>
                 <Col>
-                  <input required placeholder=" product img url" className="w-100 form-control mb-3" {...register("img", { required: true })} />
+                  <input
+                    required
+                    accept="image/*"
+                    type="file" className="mb-3"
+                    {...register("imageFile", { required: true })} />
                 </Col>
               </Row>
               <Row>
@@ -128,15 +153,6 @@ const Review = () => {
                 </Row>
 
               </div>
-
-              {/* <div>
-                <select {...register("Title", { required: true })}>
-                  <option value="" onClick={(e) => console.log(e.options[e.selectedIndex].text)} >Mr</option>
-                  <option value="Mrs">Mrs</option>
-                  <option value="Miss">Miss</option>
-                  <option value="Dr">Dr</option>
-                </select>
-              </div> */}
 
               <Button style={{ backgroundColor: "#E0647A", border: 'none' }} className="button buttonHover" type="submit">
                 Add Product
